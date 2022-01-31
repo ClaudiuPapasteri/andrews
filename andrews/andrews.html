@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute Andrews curves</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for andrews"><tr><td>andrews</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute Andrews curves</h2>
+
+<h3>Description</h3>
+
+<p>Compute data for Andrews plot, for visualizing clusters of multivariate data with ggplot2.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+andrews(df, class_column, samples = 200, reorder = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df</code></td>
+<td>
+<p>Data frame to be used, should encompass column containing class names as well at least 2 numeric columns, preferably normalized to (0.0, 1.0).</p>
+</td></tr>
+<tr valign="top"><td><code>class_column</code></td>
+<td>
+<p>String name of the column containing class names used for clustering.</p>
+</td></tr>
+<tr valign="top"><td><code>samples</code></td>
+<td>
+<p>Number of points to plot in each curve.</p>
+</td></tr>
+<tr valign="top"><td><code>reorder</code></td>
+<td>
+<p>Logical indicating whether to reorder numeric columns based on contributions to first principal component.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Andrews curves have the functional form:
+f(t) = x_1/sqrt(2) + x_2 sin(t) + x_3 cos(t) + x_4 sin(2t) + x_5 cos(2t) + ...
+Where x coefficients correspond to the values of each dimension and t is linearly spaced between -pi and +pi. Each row of frame then corresponds to a single curve.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(ggplot2)
+df &lt;- andrews(iris, "Species")
+ggplot(df, aes(x = t, y = values, color = class_column, group = sample)) +  
+  geom_line() +
+  scale_x_continuous(n.breaks = 7)
+
+</pre>
+
+
+</body></html>
+

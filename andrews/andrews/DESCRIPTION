@@ -1,0 +1,10 @@
+Package: andrews
+Type: Package
+Title: A FAke Title
+Version: 2.0.0
+Date: 2022-01-28
+Author: Who wrote it
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: This is just a fake package description.
+License: GPL
+RoxygenNote: 7.1.2
