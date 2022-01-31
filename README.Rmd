@@ -1,5 +1,19 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+devtools::source_url("https://github.com/ClaudiuPapasteri/andrews/blob/main/andrews/andrews.R?raw=TRUE")
+
+library(ggplot2)
+```
 
 # andrews
 
@@ -10,12 +24,11 @@ Compute Andrews curves
 
 ### Description:
 
-Compute data for Andrews plot, for visualizing clusters of multivariate
-data with ggplot2.
+Compute data for Andrews plot, for visualizing clusters of multivariate data with ggplot2.
 
 ### Usage
 
-``` r
+```{r cars}
 library(ggplot2)
 
 df <- andrews(iris, "Species")
@@ -25,4 +38,4 @@ ggplot(df, aes(x = t, y = values, color = class_column, group = sample)) +
   scale_x_continuous(n.breaks = 7)
 ```
 
-![](README_files/figure-gfm/cars-1.png)<!-- -->
+
